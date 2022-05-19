@@ -4,8 +4,6 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 //// bootsrap & fontawesome
 import "bootstrap/dist/css/bootstrap.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 //// components
 import Todo from "./Todo";
 

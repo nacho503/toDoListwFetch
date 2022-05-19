@@ -5,9 +5,6 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 
-// let tasksArray = [{ task: "Ordenar" }, { task: "limpiar" }, { task: "comer" }];
-//https://www.youtube.com/watch?v=U3IJ7dsDVaE
-
 let Todo = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setTask] = useState("");
@@ -20,11 +17,11 @@ let Todo = () => {
     e.preventDefault();
     setTasks([...tasks, newTask]);
     console.log("submit ejecutado", newTask, [tasks]);
+    setTask("");
     // e.target.reset();  <---- no funciono para resetear el placeholder
   };
 
   const deleteTask = (index) => {
-    // Que Orlando me explique porque funciona esto
     let newArray = tasks;
     newArray.splice(index, 1);
     setTask([...newArray]);
@@ -42,7 +39,7 @@ let Todo = () => {
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Add to do"
         ></input>
-        {/* maping over tasksArray */}
+        {/* mapeo del arreglo tasks y li para los elementos */}
         {tasks.map((task, index) => (
           <li className="list-group-item" key={index}>
             <span>
@@ -50,7 +47,7 @@ let Todo = () => {
               <FontAwesomeIcon
                 icon={faDeleteLeft}
                 className="deleteIcon"
-                onClick={() => deleteTask(index)} //que Orlando me explique porque esto funciona
+                onClick={() => deleteTask(index)} //CUAL ES LA DIFERENCIA DE HACERLO {() => deleteTask(index)} A   deleteTask(index)
               />
             </span>
           </li>
