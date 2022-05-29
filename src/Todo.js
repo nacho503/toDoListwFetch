@@ -14,6 +14,12 @@ let Todo = () => {
     setTask({ label: e.target.value, done: false });
   };
 
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setTasks(data));
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setTasks([...tasks, newTask]);
